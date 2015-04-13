@@ -1,0 +1,19 @@
+{
+  "name": "carpoolJS",
+  "version": "0.0.0",
+  "description": "A carpool optimizer-ish written in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Kurtz",
+  "license": "MIT + If you do something awesome, email me to let me know about it.",
+  "repository": {
+    "type": "git",
+    "url": "CarpoolJS"
+  },
+  "keywords": [
+    "carpool",
+    "opptimizer"
+  ]
+}
