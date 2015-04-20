@@ -17,6 +17,7 @@ about 30 people involved (especially if they're coming from many origins), this 
 computers in a reasonable amount of time.
 
 This program takes the following steps:
+
 1.  All people who can drive are assigned to their own car.  Depending on how costs are calculated, many of these
     vehicles are likely to be eliminated later.
 2.  All people who cannot drive are assigned to the car that, at the time, would have the greatest cost benefit by that
@@ -26,5 +27,6 @@ This program takes the following steps:
 
 
 Major Assumptions (that we've realized we're making):
+
 1.  Personal preferences of participants can be generalized to the mathematical models being employed here.
 2.  Adding a person to one car does not change the costs of any other car.
