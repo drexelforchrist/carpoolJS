@@ -25,13 +25,10 @@ require(['underscore'], function (_) {
     ];
 
     var evaluations = [
-            function(car, passengers) {
-                car // KURTZ this needs to be written mad quick.
-            }
-        ];
-
-
-
+        function (car, passengers) {
+            car // KURTZ this needs to be written mad quick.
+        }
+    ];
 
 
     /**
@@ -42,15 +39,16 @@ require(['underscore'], function (_) {
      */
     function Person() {
         this.id = people.length;
-        this.wantsToDrive = _.random(0,1) * _.random(0, 5);         // 0 = have no car and can't drive; 1 = has car, doesn't wanna drive; 5 = has car, really wants to drive
-        this.seats = this.wantsToDrive<0 ? 0 : _.random(2, 8);
-        this.sex = _.random(0,1);                   // Single-Sex cars are preferable; there tends to be less drama that way (at least from my perspective as a male)
-        this.origin = _.random(1, locations.length-1); // initial location, references "locations" var
+        this.wantsToDrive = _.random(0, 1) * _.random(0, 5);         // 0 = have no car and can't drive; 1 = has car, doesn't wanna drive; 5 = has car, really wants to drive
+        this.seats = this.wantsToDrive < 0 ? 0 : _.random(2, 8);
+        this.sex = _.random(0, 1);                   // Single-Sex cars are preferable; there tends to be less drama that way (at least from my perspective as a male)
+        this.origin = _.random(1, locations.length - 1); // initial location, references "locations" var
         this.inCar = -1; // default of 0.
     }
 
 
     var cars = [];
+
     /**
      * The Car class.  Creates a car object, which has passengers.
      *
@@ -66,7 +64,8 @@ require(['underscore'], function (_) {
         this.travelLegs = [];
         this.addPassenger(driver);
     }
-    Car.prototype.getDriver = function() {
+
+    Car.prototype.getDriver = function () {
         return this.passengers[0];
     };
     Car.prototype.__defineGetter__('driver', Car.prototype.getDriver);
@@ -76,7 +75,7 @@ require(['underscore'], function (_) {
      * @method addPassenger
      * @param {Person} passenger The passenger being added to
      */
-    Car.prototype.addPassenger = function(passenger) {
+    Car.prototype.addPassenger = function (passenger) {
         if (passenger.inCar >= 0) {
             // KURTZ remove passenger from the car they're already in.
         }
@@ -95,19 +94,16 @@ require(['underscore'], function (_) {
      * @param {Person} addition The potential additional people.
      * @return {float} the cost difference
      */
-    Car.prototype.costDifferenceIfAdd = function(addition) {
+    Car.prototype.costDifferenceIfAdd = function (addition) {
 
     };
 
 
-
-
     /* Initializes the test people */
     var people = [];
-    for (var i=0; i<numPeople; i++) {
+    for (var i = 0; i < numPeople; i++) {
         people.push(new Person());
     }
-
 
 
     /* put all potential drivers in their cars.  */
@@ -117,10 +113,9 @@ require(['underscore'], function (_) {
         return (person.wantsToDrive > 0) ? canDrive : cantDrive
     }); // separates those who could drive from those who can't.
 
-    people[canDrive].forEach(
-        function (driver) {
-            cars.push(new Car(driver))
-        });
+    people[canDrive].forEach(function (driver) {
+        cars.push(new Car(driver))
+    });
 
 
     /* For each non-driver, assign to best car */
@@ -131,6 +126,8 @@ require(['underscore'], function (_) {
 
     window.console.log("cars", cars);
 
+
+/* Old.  The following stuff should largely be ignored. */
 
 
     // assign passengers to drivers (cars)
