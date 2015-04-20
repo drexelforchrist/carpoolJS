@@ -22,8 +22,12 @@ This program takes the following steps:
     vehicles are likely to be eliminated later.
 2.  All people who cannot drive are assigned to the car that, at the time, would have the greatest cost benefit by that
     particular person being added to that particular car.
-3.  Experiments are conducted that focus on the most expensive cars, in which seats are switched with other vehicles.
+3.  Experiments are conducted in which the most expensive cars are eliminated (if enough empty seats are available).
+    Those eliminations that do not result in a cost reduction are reverted.
+4.  Experiments are conducted that focus on the most expensive cars, in which seats are switched with other vehicles.
     The switches that do not result in a cost reduction are reverted.
+5.  A revisit of steps 3 and 4 that's hopefully somewhat intelligent.
+6.  The assignment is deemed "good enough" and we start driving. 
 
 
 Major Assumptions (that we've realized we're making):
