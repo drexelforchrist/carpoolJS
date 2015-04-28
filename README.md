@@ -44,23 +44,24 @@ Major Assumptions
 1.  Personal preferences of participants can be generalized to the mathematical models being employed here.
 2.  Adding a person to one car without changing the composition of any other car will not result in any change to the
     costs of any other car.
+3.  All cars being used travel from the origin of their driver, to the destination. (Cars do not meet and combine at
+    some mid-point.)
 
 
 
 Example Cost Factors
 --------------------
-While financial costs of mileage and/or reimbursement are obvious costs, they are note the only costs associated with
+While financial costs of mileage and/or reimbursement are obvious costs, they are not the only costs associated with
 carpools.  There are also significant social costs at stake for the people who are spending several hours in a confined
 space with other people, and, should the carpool assignments be miserable for some party, there are significant
-potential political and popularity costs for those who were made responsible for the carpool assignments.  Thus, we
-invite the carpool planner to consider the following cost factors, all of which are relatively easy to generalize and
-model.
+potential political and popularity costs carried by those responsible for the carpool assignments.  Thus, we invite the
+carpool planner to consider the following cost factors, all of which are relatively easy to generalize and model.
 
 -   Mileage, either per person or per vehicle.  We typically recommend using this as the fundamental cost.
 -   The Driver's Desire to Drive.  When we calculate carpools, we always ask--in addition to the number of seats a
     driver has--how much they want to drive.  For some, driving is a pleasant experience, but for others it can be a
     significant cause of stress.  While we make no promises that drivers will get their will in these matters, we find
-    it beneficial to consider. 
+    it beneficial to consider.
 -   Sexual Composition.  It has been our experience that most (though, admittedly, not all) drama-inducing scenarios are
     across the gender line.  By preferring single-gender cars, we can somewhat reduce the angst.
 -   Over-Crowding and Loneliness.  While a full car may be the most efficient in terms of vehicle mileage, it often
