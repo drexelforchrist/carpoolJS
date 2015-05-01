@@ -1,4 +1,4 @@
-/* global require */
+/* global require, _ */
 
 require.config({
     paths: {
@@ -14,36 +14,69 @@ Array.prototype.contains = function(obj) {
         }
     }
     return false;
-}
+};
+
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
 
 require(['underscore'], function (_) {
-    var numPeople = 20;
 
 
-    var locations = ["Ocean City, NJ"]; // destination
-    // possible origins:  (to make the problem not insane, limit the number of possible origins)
-    locations.push("3700 Powelton Ave, Philadelphia, PA");
-    locations.push("101 N. 34th St, Philadelphia, PA");
-    locations.push("3400 Hamilton St, Philadelphia, PA");
-    locations.push("3200 Cuthbert St, Philadelphia, PA");
-    locations.push("3200 Chestnut St, Philadelphia, PA");
+    /* Spring Retreat 2015 Data */
+    var p, people;
+    people = [];
+    //p = new Person();	p.id = 492;	p.wantsToDrive = 5;	p.seats = 4;	p.sex = 0;	p.origin = 1;	people.push(p);
+    //p = new Person();	p.id = 1;	p.wantsToDrive = 5;	p.seats = 2;	p.sex = 0;	p.origin = 12;	people.push(p);
+    p = new Person();	p.id = 268;	p.wantsToDrive = 5;	p.seats = 5;	p.sex = 0;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 73;	p.wantsToDrive = 5;	p.seats = 4;	p.sex = 0;	p.origin = 5;	people.push(p);
+    p = new Person();	p.id = 51;	p.wantsToDrive = 5;	p.seats = 4;	p.sex = 0;	p.origin = 5;	people.push(p);
+    p = new Person();	p.id = 213;	p.wantsToDrive = 5;	p.seats = 4;	p.sex = 0;	p.origin = 5;	people.push(p);
+    p = new Person();	p.id = 229;	p.wantsToDrive = 5;	p.seats = 7;	p.sex = 0;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 45;	p.wantsToDrive = 3;	p.seats = 5;	p.sex = 0;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 170;	p.wantsToDrive = 3;	p.seats = 5;	p.sex = 0;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 144;	p.wantsToDrive = 3;	p.seats = 5;	p.sex = 1;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 94;	p.wantsToDrive = 1;	p.seats = 5;	p.sex = 0;	p.origin = 5;	people.push(p);
+    //p = new Person();	p.id = 90;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 5;	people.push(p);
+    p = new Person();	p.id = 87;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 57;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 270;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 710;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 1;	people.push(p);
+    //p = new Person();	p.id = 1067;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 1;	people.push(p);
+    //p = new Person();	p.id = 92;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 692;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 604;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 263;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 589;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 637;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    //p = new Person();	p.id = 673;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 112;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 5;	people.push(p);
+    p = new Person();	p.id = 22;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 7;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 600;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 1066;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 1;	people.push(p);
+    p = new Person();	p.id = 98;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 476;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 1;	p.origin = 4;	people.push(p);
+    p = new Person();	p.id = 227;	p.wantsToDrive = 0;	p.seats = 0;	p.sex = 0;	p.origin = 1;	people.push(p);
 
 
-    var distances = [ // get from Google or Bing maps API // syntax: distances[from][to]
-        [0, 100, 101, 101, 101, 101], // Destination OC, NJ
-        [100, 0, 1, 1, 1, 1], // 3700 Powelton
-        [101, 1, 0, 1, 1, 1], // 101 N. 34th St
-        [102, 1, 1, 0, 1, 1], // 3400 Hamilton St
-        [103, 1, 1, 1, 0, 1], // 3200 Cuthbert St
-        [104, 1, 1, 1, 1, 0]  // 3200 Chestnut St
-    ];
+
+
+
 
 
 
     /* COST EVALUATIONS */
     var evaluations = [
 
-        // Base.  Currently, number of different origins.
+        // Base.  Currently, primarily number of different origins.
         function (car, passengers) {
             var origins = [];
             passengers.forEach(function (passenger) {
@@ -51,7 +84,7 @@ require(['underscore'], function (_) {
                     origins.push(passenger.origin);
                 }
             });
-            return origins.length + 10;
+            return origins.length + 2;
         },
 
 
@@ -109,6 +142,7 @@ require(['underscore'], function (_) {
         return cost;
     }
 
+
     /**
      * The evalTotalCost function returns the total cost for all car assignments.
      *
@@ -123,7 +157,33 @@ require(['underscore'], function (_) {
 
 
     /**
-     * The Person class.  Creates a Person object.  Currently using random data.
+     * The remainingSeats function returns the total number of seats unclaimed in all cars.
+     *
+     */
+    function remainingSeats() {
+        var seats = 0;
+        cars.forEach(function (car) {
+            seats += car.emptySeats;
+        });
+        return seats;
+    }
+
+
+    /**
+     * The totalSeats function returns the total number of seats in all cars.
+     *
+     */
+    function totalSeats() {
+        var seats = 0;
+        cars.forEach(function (car) {
+            seats += car.seats;
+        });
+        return seats;
+    }
+
+
+    /**
+     * The Person class.  Creates a Person object.  Initial generation inserts random data.
      *
      * @class Person
      * @constructor
@@ -133,7 +193,7 @@ require(['underscore'], function (_) {
         this.wantsToDrive = _.random(0, 1) * _.random(0, 5);         // 0 = have no car and can't drive; 1 = has car, doesn't wanna drive; 5 = has car, really wants to drive
         this.seats = this.wantsToDrive < 0 ? 0 : _.random(2, 8);
         this.sex = _.random(0, 1);                   // Single-Sex cars are preferable; there tends to be less drama that way (at least from my perspective as a male)
-        this.origin = _.random(1, locations.length - 1); // initial location, references "locations" var
+        this.origin = -1; //KURTZ TESTING _.random(1, locations.length - 1); // initial location, references "locations" var
         this.inCar = -1; // default of -1, meaning unassigned.
     }
 
@@ -169,6 +229,12 @@ require(['underscore'], function (_) {
     Car.prototype.__defineGetter__('cost', Car.prototype.getCost);
 
 
+    Car.prototype.getEmptySeats = function () {
+        return this.seats - this.passengers.length;
+    };
+    Car.prototype.__defineGetter__('emptySeats', Car.prototype.getEmptySeats);
+
+
     /**
      * The addPassenger method adds a passenger to a given car.
      *
@@ -176,28 +242,17 @@ require(['underscore'], function (_) {
      * @param {Person} passenger The passenger being added to
      */
     Car.prototype.addPassenger = function (passenger) {
-        if (passenger.inCar >= 0) {
-            // KURTZ remove passenger from the car they're already in.
+        if (passenger.inCar !== -1) {
+            passenger.inCar.passengers.remove(passenger);
         }
-        passenger.inCar = this.id;
+        passenger.inCar = this;
         this.passengers.push(passenger);
         if (passenger.origin !== this.origin) {
-            if (!_.contains(this.travelLegs, passenger.origin)) {
+            if (!this.travelLegs.contains(passenger.origin)) {
                 this.travelLegs.push(passenger.origin); // KURTZ change travel legs to have intelligent ordering.
             }
         }
     };
-    /**
-     * The costDifferenceIfAdd method evaluates how the cost will be different if a given person is added to a given car.
-     *
-     * @method costDifferenceIfAdd
-     * @param {Person} addition The potential additional people.
-     * @return {float} the cost difference
-     */
-    Car.prototype.costDifferenceIfAdd = function (newPassenger) {
-
-    };
-
 
 
 
@@ -208,14 +263,14 @@ require(['underscore'], function (_) {
     /* THE ACTUAL PROCEDURE: */
 
 
-    /* Initializes the test people */
-    var people = [];
-    for (var i = 0; i < numPeople; i++) {
-        people.push(new Person());
-    }
+    ///* Initializes the test people */
+    //var people = [];
+    //for (var i = 0; i < numPeople; i++) {
+    //    people.push(new Person());
+    //}
 
 
-    /* Put all potential drivers in their cars.  */
+    /* 1.  Put all potential drivers in their cars.  */
     var canDrive = "has car";
     var cantDrive = "no car";
     people = _.groupBy(people, function (person) {
@@ -227,15 +282,45 @@ require(['underscore'], function (_) {
     });
 
 
-    /* For each non-driver, assign to best car */
-
-    people[cantDrive].forEach(function (passenger) {
-
-        cars = _.sortBy(cars, function(car) {
+    /* 2.  For each non-driver, assign to best car */
+    people[cantDrive].forEach(function (passenger) { // KURTZ make into a "assign to some car" function
+        cars = _.sortBy(cars, function(car) { // sort to get least expensive. // KURTZ do something more efficient
             var passengers = [passenger].concat(car.passengers);
-            return evalCost(car, passengers)
+            return evalCost(car, passengers);
         });
         cars[0].addPassenger(passenger);
+    });
+
+
+    people = _.union(people[cantDrive], people[canDrive]);
+
+
+    /* 3. The Most Expensive cars are eliminated */
+    var removedCar;
+
+    while (totalSeats()*.80 > people.length) { // KURTZ develop the exit condition
+        cars = _.sortBy(cars, function (car) { // sort to get most expensive.  // KURTZ do something more efficient
+            return car.cost;
+        });
+
+        removedCar = cars.pop();
+
+        while (removedCar.passengers.length > 0) {
+            var passenger = removedCar.passengers.pop();
+            cars = _.sortBy(cars, function (car) { // sort to get least expensive. // KURTZ do something more efficient
+                var passengers = [passenger].concat(car.passengers);
+                return evalCost(car, passengers);
+            });
+            cars[0].addPassenger(passenger);
+        }
+    }
+
+
+
+
+    /* preparing the output...  */
+    cars = _.sortBy(cars, function (car) {
+        return evalCost(car, car.passengers)
     });
 
 
@@ -246,40 +331,44 @@ require(['underscore'], function (_) {
 
     window.console.info("Total Cost: ", evalTotalCost().toString());
 
+    window.console.info("Empty Seats: ", remainingSeats().toString());
 
-/* Old.  The following stuff should largely be ignored. */
+    window.console.info("Total Seats: ", totalSeats().toString());
 
 
-    //// assign passengers to drivers (cars)
-    //loop:
-    //while (true) {
-    //    for (passengersInCar=0; ++passengersInCar < people[driver].seats;) {
-    //        if (driver >= passenger) {
-    //            break loop;
-    //        }
-    //        people[driver].inCarOf = people[driver].id;
-    //        people[passenger].inCarOf = people[driver].id;
-    //        passenger--;
-    //    }
-    //    driver++;
-    //}
-    //
-    //
-    //// split up the cars
-    //people = _.groupBy(people, function(person) { return person.inCarOf; });
-    //
-    //
-    //// add "empty seats" to cars
-    //_.forEach(cars, function(car) {
-    //    while(car.length < _.first(car).seats) {
-    //        car.push(null);
-    //    }
-    //    document.write("did something!");
-    //    return this;
-    //});
-    //
-    //
-    //console.info(cars);
+    people = _.sortBy(people, function (person) {
+        return person.id;
+    });
+
+    var div = document.createElement('div');
+    div.innerHTML = "id";
+    div.innerHTML += ",";
+    div.innerHTML += "car";
+    div.innerHTML += ",";
+    div.innerHTML += "peopleInCar";
+    div.innerHTML += ",";
+    div.innerHTML += "personIsDriver";
+
+    document.body.appendChild(div);
+
+    people.forEach(function(passenger) {
+        div = document.createElement('div');
+        div.id = passenger.id;
+
+        div.innerHTML = passenger.id;
+        div.innerHTML += ",";
+        div.innerHTML += passenger.inCar.id.toString();
+        div.innerHTML += ",";
+        div.innerHTML += passenger.inCar.passengers.length.toString();
+        div.innerHTML += ",";
+        div.innerHTML += (passenger.inCar.passengers[0].id === passenger.id).toString().toUpperCase();
+
+        document.body.appendChild(div);
+    });
+
+
+
+
 });
 
 
